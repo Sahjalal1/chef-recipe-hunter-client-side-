@@ -1,27 +1,37 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../Providers/AuthProviders';
 
-const Register = () => {
+const Login = () => {
 
-    const {user, createUser} = useContext(AuthContext);
-    console.log(createUser)
-
+   
     const rahim = e => {
         e.preventDefault();
         const form = e.target;
-        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password)
-        createUser(email, password)
+        console.log(email, password)
+        signIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+                alert('suc')
+                form.reset()
+                
+            })
+            .catch(error => {
+                alert(error)
+            })
+    }
+
+    const handleGoogleSignIn = () =>{
+        signInWithGoogle()
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser)
-            form.reset()
+            
         })
         .catch(error => {
-            console.log(error)
+            alert(error)
         })
     }
     return (
@@ -35,12 +45,6 @@ const Register = () => {
                     <form onSubmit={rahim} className="card-body">
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Name</span>
-                            </label>
-                            <input type="text" placeholder="name" name='name' className="input input-bordered" />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
                             <input type="text" placeholder="email" name='email' className="input input-bordered" />
@@ -51,17 +55,23 @@ const Register = () => {
                             </label>
                             <input type="text" placeholder="password" name='password' className="input input-bordered" />
                             <label className="label">
-                                <Link to="/Login" className="label-text-alt link link-hover">Already have an account?</Link>
+                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Register</button>
+                            <button className="btn btn-primary">Login</button>
                         </div>
                     </form>
+                    <div className='mx-auto mb-5 '>
+                        <Link to="/register" className="label-text-alt link link-hover text-lg">Already have an account?</Link>
+                    </div>
+                    <div>
+                        <button onClick={handleGoogleSignIn} className='btn btn-primary'>Google</button>
+                    </div>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Register;
+export default Login;
