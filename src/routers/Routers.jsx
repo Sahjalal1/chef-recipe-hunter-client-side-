@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home/Home";
 import Blog from "../pages/Home/Blog/Blog";
 import Login from "../pages/Home/Login/Login";
 import Registration from "../pages/Home/Registration/Register";
+import ChefDetails from "../pages/Home/ChefDetails/ChefDetails";
 
 
 
@@ -14,7 +15,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch(`http://localhost:5000/chefs`)
             },
             {
                 path: '/blog',
@@ -27,7 +29,14 @@ const router = createBrowserRouter([
             {
                 path: '/registration',
                 element: <Registration></Registration>
+            },
+            {
+                path: '/chefDetails/:id',
+                element: <ChefDetails></ChefDetails>,
+                loader:({params}) => fetch(`http://localhost:5000/chefs/${params.id}`),
+                
             }
+            
            
             
         ]

@@ -1,11 +1,15 @@
 import React from 'react';
 import img from '../../../assets/Beef-Biriyani-Mumo-Kitchen-13-scaled.webp'
+import { Link, useLoaderData } from 'react-router-dom';
+import ChefsCard from '../ChefsCard/ChefsCard';
 
 const Home = () => {
+    const chefs = useLoaderData()
+
     return (
         /**/
         <>
-            <div className="hero min-h-screen" style={{ backgroundImage: `url(${img})` }}>
+            <div className="hero h-[600px]" style={{ backgroundImage: `url(${img})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
@@ -16,21 +20,15 @@ const Home = () => {
                 </div>
             </div>
 
-
-            <div className='w-[80%] mt-20 mx-auto'>
-                <div className="card card-compact w-96 bg-base-100 shadow-xl ">
-                    <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Buy Now</button>
-                        </div>
-                    </div>
-                </div>
+            <div className='w-[90%] grid grid-cols-1 lg:grid-cols-3 gap-7 mx-auto mt-12'>
+                {
+                    chefs.map(chef => <ChefsCard
+                        key={chef.id}
+                        
+                        chefs={chef}
+                    ></ChefsCard>)
+                }
             </div>
-
-
         </>
     );
 };
