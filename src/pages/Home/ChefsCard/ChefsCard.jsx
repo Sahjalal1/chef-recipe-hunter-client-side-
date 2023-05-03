@@ -17,7 +17,7 @@ const ChefsCard = ({ chefs }) => {
                     <p className='font-serif'>recipes {number_of_recipes}</p>
                     <p>experience: {years_of_experience} years</p>
                     <div className="flex justify-between items-center lg:gap-[50%] mt-3 lg:mt-0">
-                        <Link to={`/chefDetails/${id}`}><button className="btn btn-primary">details</button></Link>
+                        <Link to={`/chefDetails/${id}`}><button className="btn btn-primary">View Recipes</button></Link>
                         <span className='w-12 flex items-center gap-1 font-serif mr-9'><span><FaRegThumbsUp className='w-8 h-7'></FaRegThumbsUp></span> {likes}</span>
                     </div>
                 </div>

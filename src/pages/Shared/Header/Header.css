@@ -1,0 +1,12 @@
+/* .hide{
+    /* visibility: hidden; */
+    /* display: none */
+/* } */
+
+
+@media screen and (max-width: 480px) {
+    .hide {
+        visibility: hidden;
+        position: absolute;
+    }
+  }
