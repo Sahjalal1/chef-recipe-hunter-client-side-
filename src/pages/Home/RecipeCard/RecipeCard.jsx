@@ -33,7 +33,7 @@ const RecipeCard = ({ recipe }) => {
                         <span>{rating}</span>
                     </div>
                     <p className="py-6"><span className='font-bold text-2xl'> Cooking Method : </span>{cookingMethod}</p>
-                    <button onClick={()=> favorite(id)} className='btn'>Favorite</button>
+                    <button onClick={()=> favorite(id)} className='btn '>Favorite</button>
                 </div>
             </div>
         

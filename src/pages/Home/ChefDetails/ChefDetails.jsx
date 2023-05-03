@@ -28,7 +28,7 @@ const ChefDetails = () => {
                             <p className='w-12 flex items-center gap-1'><span><FaRegThumbsUp className='w-8 h-7'></FaRegThumbsUp></span> {likes}</p>
                         </div>
                         <p className='my-3 text-2xl'>experience: {years_of_experience} years</p>
-                        <button className="btn btn-primary">Get Started</button>
+                        <button className="btn btn-primary checked disabled ">Get Started</button>
                     </div>
                 </div>
             </div>
