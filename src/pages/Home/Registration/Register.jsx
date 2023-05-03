@@ -6,13 +6,12 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const Register = () => {
 
-    const { createUser } = useContext(AuthContext)
+    const { createUser, updateUserData } = useContext(AuthContext)
+    const [accepted, setAccepted] = useState(false)
+    const toastify = (check, oast) => {
+        check ? toast.success(oast, { position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "dark", }) : toast.error(oast, { position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "dark", })
 
-    const toastify = (hah, oast) => {
-        hah ? toast.success(oast, {position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true,draggable: true, progress: undefined, theme: "dark",}) : toast.error(oast, {position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true,draggable: true, progress: undefined, theme: "dark",}) 
-        
     }
-    
 
     const handleRegister = e => {
         e.preventDefault();
@@ -24,27 +23,36 @@ const Register = () => {
         console.log(name, photo, email, password)
 
         if (password.length < 6) {
-            return toastify(false, "Please! Password Enter the six character")
-            
+            return toastify(false, "Please! Password Enter the six character");
         }
         createUser(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
-                notify(true, "Thank You")
+                toastify(true, "Register Successful")
+                updateUserData(loggedUser, name, photo)
                 form.reset()
+
             })
             .catch(error => {
                 toastify(false, error)
             })
+
     }
+
+    const handleAccepted = e =>{
+        setAccepted(e.target.checked) 
+        
+    }
+
+
     return (
         <div className="hero min-h-screen bg-indigo-300">
             <div className="hero-content lg:w-[500px]  flex-col">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Register now!</h1>
                 </div>
-                <div className=" w-[100%] shadow-2xl bg-base-100 rounded-lg">
+                <div className="w-[100%] shadow-2xl bg-base-100 rounded-lg">
                     <form onSubmit={handleRegister} className="card-body">
                         <div className="form-control">
                             <label className="label">
@@ -74,11 +82,11 @@ const Register = () => {
                             </label>
                         </div>
                         <label className="flex gap-2 cursor-pointer">
-                            <input type="checkbox" checked:checked className="checkbox checkbox-primary" />
-                            <span className="">Remember me</span>
+                            <input onClick={handleAccepted} type="checkbox" className="checkbox checkbox-primary" />
+                            <span className="">Accept Terms and Conditions</span>
                         </label>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Register</button>
+                            <button disabled={!accepted} className="btn btn-primary">Register</button>
                             <ToastContainer
                                 position="top-center"
                                 autoClose={5000}
