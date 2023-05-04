@@ -96,7 +96,7 @@ console.log(showorhide)
                             <span className="">Accept Terms and Conditions</span>
                         </label>
                         <label className="label ">
-                            <Link to="/login" className="link link-primary">Already have an account?</Link>
+                            <Link to="/chef/login" className="link link-primary">Already have an account?</Link>
                         </label>
                         <div className="form-control mt-6">
                             <button disabled={!accepted} className="btn btn-primary">Register</button>

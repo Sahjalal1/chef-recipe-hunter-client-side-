@@ -47,7 +47,6 @@ const Login = () => {
     }
 
     const handleGoogleSignIn = () => {
-        console.log('rahimmmmmmmmmmmmmmmmmmmmmmm')
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 toastify(true, "Login Successful");
@@ -85,13 +84,13 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" placeholder="email" name='email' className="input input-bordered" />
+                            <input type="text" placeholder="email" name='email' className="input input-bordered" required/>
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="text" placeholder="password" name='password' className="input input-bordered" />
+                            <input type="text" placeholder="password" name='password' className="input input-bordered" required/>
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
@@ -112,7 +111,7 @@ const Login = () => {
                             />
                         </div>
                         <div className='mx-auto'>
-                            <Link to="/registration" className="text-lg">Please: <span className='link link-primary'>Registration now</span></Link>
+                            <Link to="/chef/registration" className="text-lg">Please: <span className='link link-primary'>Registration now</span></Link>
                         </div>
                     </form>
                     <div className='flex justify-between items-center w-[80%] mx-auto border-2 text-xl my-2  rounded-lg py-2 px-2 bg-indigo-700'>

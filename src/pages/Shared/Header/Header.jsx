@@ -47,7 +47,7 @@ const Header = () => {
                         {
                             user ? <button onClick={() => logOut()}>logout</button> : <nav className='flex gap-3'>
                                 <NavLink to='/chef/login'><button>login</button></NavLink>
-                                <NavLink to='chef/registration'>Registration</NavLink>
+                                <NavLink to='/chef/registration'>Registration</NavLink>
                             </nav>
                         }
 

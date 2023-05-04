@@ -25,6 +25,8 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         return signOut(auth);
     }
+
+    
     
     const updateUserData = (user, name, photo) =>{
         setLoading(true)

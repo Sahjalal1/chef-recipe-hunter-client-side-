@@ -3,7 +3,7 @@ import { Document, Page } from 'react-pdf';
 
 const Blog = () => {
     return (
-        <div className='card w-[95%] lg:w-[80%] grid lg:grid-cols-2 gap-6 bg-sky-400 mt-10 p-4 py-4 lg:px-10 lg:py-5 mx-auto'>
+        <div className='card w-[95%] lg:w-[80%] grid lg:grid-cols-2 gap-6 bg-sky-400 mt-10 mb-6 p-4 py-4 lg:px-10 lg:py-5 mx-auto'>
             <div className='card px-8 py-5'>
                 <h1 className='text-2xl font-bold'>1. Tell us the differences between uncontrolled and controlled components??</h1>
                 <p className='leading-relaxed mt-3'><span className='font-bold text-xl'>Ans: </span>In React, controlled components refer to components that have their state and behavior controlled by the parent component. These components rely on props passed down from the parent component to update their state and behavior. Uncontrolled components refer to components that manage their own state internally.</p>
@@ -29,7 +29,6 @@ const Blog = () => {
                 
             </div>
 
-            <button>rahim</button>
         </div>
     );
 };
