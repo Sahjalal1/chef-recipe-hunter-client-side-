@@ -36,26 +36,27 @@ const Login = () => {
                 toastify(true, "Login Successful")
                 const loggedUser = result.user;
                 console.log(loggedUser)
-                form.reset()
                 navigate(from)
+                form.reset()
+                
 
             })
             .catch(error => {
-                toastify(true, error)
+                toastify(false, error)
             })
     }
 
     const handleGoogleSignIn = () => {
-
+        console.log('rahimmmmmmmmmmmmmmmmmmmmmmm')
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 toastify(true, "Login Successful");
                 const user = result.user;
                 console.log(user)
-                navigate(from)
+                // navigate(from)
             })
             .catch(error => {
-                console.log('error', error.message)
+                toastify(false, error.message)
             })
     }
 
@@ -68,7 +69,7 @@ const Login = () => {
                 navigate(from)
             })
             .catch(error => {
-                console.log('error', error.message)
+                toastify('error', error.message)
             })
     }
 

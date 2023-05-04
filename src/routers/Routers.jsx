@@ -7,6 +7,7 @@ import Registration from "../pages/Home/Registration/Register";
 import ChefDetails from "../pages/Home/ChefDetails/ChefDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
+import Chef from "../layouts/Chef/Chef";
 
 
 
@@ -19,42 +20,37 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch(`http://localhost:5000/chefs`)
+                loader: () => fetch(`https://server-mdsahjalalrahim-gmailcom.vercel.app/chefs`)
             },
+
+
+
+        ]
+    },
+    {
+        path: 'chef',
+        element: <Chef></Chef>,
+        children: [
             {
-                path: '/blog',
+                path: '/chef/blog',
                 element: <Blog></Blog>
             },
             {
-                path: '/login',
+                path: '/chef/login',
                 element: <Login></Login>
             },
             {
-                path: '/registration',
+                path: '/chef/registration',
                 element: <Registration></Registration>
-            },
+            },  
             {
-                path: '/chefDetails/:id',
+                path: '/chef/chefDetails/:id',
                 element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
-                loader:({params}) => fetch(`http://localhost:5000/chefs/${params.id}`),
-                
-            }  
-            
-           
-            
+                loader: ({ params }) => fetch(`https://server-mdsahjalalrahim-gmailcom.vercel.app/chefs/${params.id}`),
+
+            }
         ]
-    },
-    // {
-    //         path: 'news',
-    //         element: <NewsLayout></NewsLayout>,
-    //         children: [
-    //             {
-    //                 path: ':id',
-    //                 element: <News></News>
-                    
-    //             }
-    //         ]
-    // }
+    }
 ])
 
 export default router;
