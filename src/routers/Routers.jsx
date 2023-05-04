@@ -6,6 +6,7 @@ import Login from "../pages/Home/Login/Login";
 import Registration from "../pages/Home/Registration/Register";
 import ChefDetails from "../pages/Home/ChefDetails/ChefDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Rrrorpage from "../pages/Shared/404-page/Rrrorpage";
 
 
 
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
                 loader:({params}) => fetch(`http://localhost:5000/chefs/${params.id}`),
                 
-            }
+            }  
             
            
             

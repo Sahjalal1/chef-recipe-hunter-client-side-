@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import Rating from 'react-rating';
 
 const RecipeCard = ({ recipe }) => {
-    const { id, recipe_picture, recipe_name, beef, spice, souryogurt, oil, water, rating, cookingMethod } = recipe;
+    const { id, recipe_picture, recipe_name, beef, spice, souryogurt, oil, water, ratinge, cookingMethod } = recipe;
 
-    const favorite = (id)=>{
-        
-    }
+    const [favorite, setFavorite] = useState(false)
+
     return (
         
             <div className="hero-content text-[#f3ebeb] mx-auto mt-12">
@@ -24,16 +23,16 @@ const RecipeCard = ({ recipe }) => {
                     </div>
                     <div className='flex-grow-1 mt-3'>
                         <Rating
-                            placeholderRating={rating}
+                            placeholderRating={ratinge}
                             readonly
                             emptySymbol={<FaRegStar></FaRegStar>}
                             placeholderSymbol={<FaStar className='text-warning'></FaStar>}
                             fullSymbol={<FaStar></FaStar>}
                         />
-                        <span>{rating}</span>
+                        <span>{ratinge}</span>
                     </div>
                     <p className="py-6"><span className='font-bold text-2xl'> Cooking Method : </span>{cookingMethod}</p>
-                    <button onClick={()=> favorite(id)} className='btn '>Favorite</button>
+                    <button onClick={()=>setFavorite(true)} disabled={favorite} className='btn'>Favorite</button>
                 </div>
             </div>
         

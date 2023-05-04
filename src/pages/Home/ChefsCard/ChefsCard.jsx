@@ -13,7 +13,6 @@ const ChefsCard = ({ chefs }) => {
                 </figure>
                 <div className="mx-2 my-3 lg:card-body">
                     <h2 className="card-title">{chef_name}</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
                     <p className='font-serif'>recipes {number_of_recipes}</p>
                     <p>experience: {years_of_experience} years</p>
                     <div className="flex justify-between items-center lg:gap-[50%] mt-3 lg:mt-0">

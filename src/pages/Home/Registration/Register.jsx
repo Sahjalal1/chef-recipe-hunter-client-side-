@@ -8,6 +8,7 @@ const Register = () => {
 
     const { createUser, updateUserData } = useContext(AuthContext)
     const [accepted, setAccepted] = useState(false)
+    const [showorhide, setShoworhide] = useState(false)
     const toastify = (check, oast) => {
         check ? toast.success(oast, { position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "dark", }) : toast.error(oast, { position: "top-center", autoClose: 5000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "dark", })
 
@@ -40,17 +41,16 @@ const Register = () => {
 
     }
 
-    const handleAccepted = e =>{
-        setAccepted(e.target.checked) 
-        
+    const handleAccepted = e => {
+        setAccepted(e.target.checked)
+
     }
-
-
+console.log(showorhide)
     return (
         <div className="hero min-h-screen bg-indigo-300">
             <div className="hero-content lg:w-[500px]  flex-col">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Register now!</h1>
+                    <h1 className="text-5xl font-bold text-[#12398d]">Register now!</h1>
                 </div>
                 <div className="w-[100%] shadow-2xl bg-base-100 rounded-lg">
                     <form onSubmit={handleRegister} className="card-body">
@@ -70,20 +70,26 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" placeholder="email" name='email' className="input input-bordered" required />
+                            <input type="email" placeholder="email" name='email' className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="text" placeholder="password" name='password' className="input input-bordered" required />
-                            <label className="label">
-                                <Link to="/login" className="label-text-alt link link-hover">Already have an account?</Link>
-                            </label>
+                            <input type={showorhide ? "text" : "password"} placeholder="password" name='password' className="input input-bordered" required />
+                            
+                                <label className="flex gap-2 cursor-pointer mt-1">
+                                    <input onClick={()=>setShoworhide(!showorhide)} type="checkbox" className="checkbox checkbox-primary" />
+                                    <span className="">{showorhide ? "hide password" : "shwo password"}</span>
+                                </label>
+                            
                         </div>
                         <label className="flex gap-2 cursor-pointer">
                             <input onClick={handleAccepted} type="checkbox" className="checkbox checkbox-primary" />
                             <span className="">Accept Terms and Conditions</span>
+                        </label>
+                        <label className="label ">
+                            <Link to="/login" className="link link-primary">Already have an account?</Link>
                         </label>
                         <div className="form-control mt-6">
                             <button disabled={!accepted} className="btn btn-primary">Register</button>

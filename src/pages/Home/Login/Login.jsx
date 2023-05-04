@@ -25,7 +25,7 @@ const Login = () => {
 
     }
 
-    const  handleOnSubmit= e => {
+    const handleOnSubmit = e => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
@@ -33,9 +33,9 @@ const Login = () => {
         console.log(email, password)
         signIn(email, password)
             .then(result => {
+                toastify(true, "Login Successful")
                 const loggedUser = result.user;
                 console.log(loggedUser)
-                toastify(true, "Login Successful")
                 form.reset()
                 navigate(from)
 
@@ -49,8 +49,9 @@ const Login = () => {
 
         signInWithPopup(auth, googleProvider)
             .then(result => {
+                toastify(true, "Login Successful");
                 const user = result.user;
-                toastify(true, "Login Successful")
+                console.log(user)
                 navigate(from)
             })
             .catch(error => {
@@ -76,7 +77,6 @@ const Login = () => {
             <div className="hero-content lg:w-[500px] flex-col ">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login now!</h1>
-                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 </div>
                 <div className="w-[85%] shadow-2xl bg-base-100 rounded-lg">
                     <form onSubmit={handleOnSubmit} className="card-body">
@@ -95,10 +95,7 @@ const Login = () => {
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                         </div>
-                        <div className='mx-auto'>
-                            <Link to="/register" className="label-text-alt link link-hover text-lg">Already have an account?</Link>
-                        </div>
-                        <div className="form-control">
+                        <div className="form-control mt-3">
                             <button className="btn btn-primary">Login</button>
                             <ToastContainer
                                 position="top-center"
@@ -112,6 +109,9 @@ const Login = () => {
                                 pauseOnHover
                                 theme="light"
                             />
+                        </div>
+                        <div className='mx-auto'>
+                            <Link to="/registration" className="text-lg">Please: <span className='link link-primary'>Registration now</span></Link>
                         </div>
                     </form>
                     <div className='flex justify-between items-center w-[80%] mx-auto border-2 text-xl my-2  rounded-lg py-2 px-2 bg-indigo-700'>
