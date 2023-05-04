@@ -6,7 +6,7 @@ import Login from "../pages/Home/Login/Login";
 import Registration from "../pages/Home/Registration/Register";
 import ChefDetails from "../pages/Home/ChefDetails/ChefDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-import Rrrorpage from "../pages/Shared/404-page/Rrrorpage";
+import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 
 
 
@@ -14,6 +14,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',

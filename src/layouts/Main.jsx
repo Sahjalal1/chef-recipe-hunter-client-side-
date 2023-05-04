@@ -3,8 +3,7 @@ import Header from '../pages/Shared/Header/Header';
 import { Outlet } from 'react-router-dom';
 import Footer from '../pages/Shared/Footer/Footer';
 import OurService from '../pages/Home/OurService/OurService';
-import Aboutus from '../pages/Home/Aboutus/Aboutus';
-
+import PopularFoods from '../pages/Home/PopularFoods/PopularFoods'
 
 const Main = () => {
     return (
@@ -12,7 +11,7 @@ const Main = () => {
             <Header></Header>
             <Outlet></Outlet>
             <OurService></OurService>
-            <Aboutus></Aboutus>
+            <PopularFoods></PopularFoods>
             <Footer></Footer>
             
         </div>
