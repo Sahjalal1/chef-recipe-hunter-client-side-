@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProviders';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from '../../../firebase/firebase.config';
 import { ToastContainer, toast } from 'react-toastify';
+import bgimg from '../../../assets/painting-jungle-scene-with-green-plant-green-leafy-plant_1340-31601.avif';
 
 
 
@@ -14,6 +15,8 @@ const Login = () => {
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
+
+    const [showorhide, setShoworhide] = useState(false)
 
     const location = useLocation()
     const from = location.state?.from?.pathname || '/';
@@ -38,7 +41,7 @@ const Login = () => {
                 console.log(loggedUser)
                 navigate(from)
                 form.reset()
-                
+
 
             })
             .catch(error => {
@@ -74,27 +77,30 @@ const Login = () => {
     }
 
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-base-200" style={{ backgroundImage: `url(${bgimg})` }}>
             <div className="hero-content lg:w-[500px] flex-col ">
-                <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
-                </div>
-                <div className="w-[85%] shadow-2xl bg-base-100 rounded-lg">
+
+                <div className="w-[95%] shadow-2xl bg-base-100 rounded-lg">
+                    <div className="text-center lg:text-left">
+                        <h1 className="text-5xl font-bold">Login now!</h1>
+                    </div>
                     <form onSubmit={handleOnSubmit} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" placeholder="email" name='email' className="input input-bordered" required/>
+                            <input type="text" placeholder="email" name='email' className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="text" placeholder="password" name='password' className="input input-bordered" required/>
+                            <input type={showorhide ? "text" : "password"} placeholder="password" name='password' className="input input-bordered" required />
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
+                            <input onClick={() => setShoworhide(!showorhide)} type="checkbox" className="checkbox checkbox-primary" />
+                            <span className="">{showorhide ? "hide password" : "shwo password"}</span>
                         </div>
                         <div className="form-control mt-3">
                             <button className="btn btn-primary">Login</button>

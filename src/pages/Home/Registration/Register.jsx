@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProviders';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import bgimg from '../../../assets/forest-landscape-scene-sunset-time_1308-62118.avif'
 
 const Register = () => {
 
@@ -54,12 +55,13 @@ const Register = () => {
     }
 console.log(showorhide)
     return (
-        <div className="hero min-h-screen bg-indigo-300">
+        <div className="hero min-h-screen " style={{ backgroundImage: `url(https://img.freepik.com/free-photo/exotic-green-leaves_23-2147677728.jpg?size=626&ext=jpg)` }}>
             <div className="hero-content lg:w-[500px]  flex-col">
-                <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold text-[#12398d]">Register now!</h1>
-                </div>
+                
                 <div className="w-[100%] shadow-2xl bg-base-100 rounded-lg">
+                <div className="text-center lg:text-left">
+                    <h1 className="text-5xl font-bold">Register now!</h1>
+                </div>
                     <form onSubmit={handleRegister} className="card-body">
                         <div className="form-control">
                             <label className="label">

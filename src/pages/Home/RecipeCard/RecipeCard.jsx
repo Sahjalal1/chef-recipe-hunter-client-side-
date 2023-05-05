@@ -15,7 +15,7 @@ const RecipeCard = ({ recipe }) => {
     
     return (
 
-        <div className="hero-content flex flex-col lg:flex-row text-[#f3ebeb] mx-auto mt-12">
+        <div className="hero-content flex flex-col lg:flex-row text-[#f3ebeb] mx-auto mt-12" >
             <img src={recipe_picture} className="w-[450px] h-[530px] rounded-lg shadow-2xl" />
             <div>
                 <h1 className="text-5xl font-bold">{recipe_name}</h1>
