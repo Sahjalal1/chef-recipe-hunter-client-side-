@@ -17,7 +17,7 @@ const Login = () => {
 
     const location = useLocation()
     const from = location.state?.from?.pathname || '/';
-
+    console.log(app)
     const navigate = useNavigate()
 
     const toastify = (check, oast) => {
@@ -56,6 +56,7 @@ const Login = () => {
             })
             .catch(error => {
                 toastify(false, error.message)
+                console.log(error)
             })
     }
 
@@ -111,7 +112,7 @@ const Login = () => {
                             />
                         </div>
                         <div className='mx-auto'>
-                            <Link to="/chef/registration" className="text-lg">Please: <span className='link link-primary'>Registration now</span></Link>
+                            <Link to="/Home/registration" className="text-lg">Please: <span className='link link-primary'>Registration now</span></Link>
                         </div>
                     </form>
                     <div className='flex justify-between items-center w-[80%] mx-auto border-2 text-xl my-2  rounded-lg py-2 px-2 bg-indigo-700'>

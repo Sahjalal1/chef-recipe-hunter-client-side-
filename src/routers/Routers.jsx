@@ -8,6 +8,7 @@ import ChefDetails from "../pages/Home/ChefDetails/ChefDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 import Chef from "../layouts/Chef/Chef";
+import Faw from "../pages/Home/Blog/faw";
 
 
 
@@ -23,28 +24,31 @@ const router = createBrowserRouter([
                 loader: () => fetch(`https://server-mdsahjalalrahim-gmailcom.vercel.app/chefs`)
             },
 
-
+            {
+                path: '/faw',
+                element: <Faw></Faw>
+            }
 
         ]
     },
     {
-        path: 'chef',
+        path: 'Home',
         element: <Chef></Chef>,
         children: [
             {
-                path: '/chef/blog',
+                path: '/Home/blog',
                 element: <Blog></Blog>
             },
             {
-                path: '/chef/login',
+                path: '/Home/login',
                 element: <Login></Login>
             },
             {
-                path: '/chef/registration',
+                path: '/Home/registration',
                 element: <Registration></Registration>
-            },  
+            },
             {
-                path: '/chef/chefDetails/:id',
+                path: '/Home/chefDetails/:id',
                 element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://server-mdsahjalalrahim-gmailcom.vercel.app/chefs/${params.id}`),
 

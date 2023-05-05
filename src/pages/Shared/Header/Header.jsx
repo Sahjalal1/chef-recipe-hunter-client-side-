@@ -15,7 +15,7 @@ const Header = () => {
             <div className="navbar-center hidden lg:flex text-white">
                 <ul className="menu menu-horizontal px-1 lg:flex lg:items-center text-xl lg:gap-4 lg:mr-10">
                     <NavLink to='/'>Home</NavLink>
-                    <NavLink to='/chef/blog'>Blog</NavLink>
+                    <NavLink to='/Home/blog'>Blog</NavLink>
 
                     {
                         user && <div className="p-2 rounded-full bg-white">
@@ -24,8 +24,8 @@ const Header = () => {
                     }
                     {
                         user ? <button onClick={() => logOut()}>logout</button> : <nav className='flex gap-3'>
-                            <NavLink to='/chef/login'><button>login</button></NavLink>
-                            <NavLink to='/chef/registration'>Registration</NavLink>
+                            <NavLink to='/Home/login'><button>login</button></NavLink>
+                            <NavLink to='/Home/registration'>Registration</NavLink>
                             {/* className={({ isActive }) => (isActive ? 'active' : 'default')} */}
                         </nav>
                     }
@@ -43,11 +43,11 @@ const Header = () => {
                     </label>
                     <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
                         <NavLink to='/'>Home</NavLink>
-                        <NavLink to='/chef/blog'>Blog</NavLink>
+                        <NavLink to='/Home/blog'>Blog</NavLink>
                         {
                             user ? <button onClick={() => logOut()}>logout</button> : <nav className='flex gap-3'>
-                                <NavLink to='/chef/login'><button>login</button></NavLink>
-                                <NavLink to='/chef/registration'>Registration</NavLink>
+                                <NavLink to='/Home/login'><button>login</button></NavLink>
+                                <NavLink to='/Home/registration'>Registration</NavLink>
                             </nav>
                         }
 
