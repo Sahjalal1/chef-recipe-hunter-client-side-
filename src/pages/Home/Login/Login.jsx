@@ -11,7 +11,7 @@ import bgimg from '../../../assets/painting-jungle-scene-with-green-plant-green-
 
 const Login = () => {
 
-    const { signIn } = useContext(AuthContext)
+    const { signIn,loading } = useContext(AuthContext)
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
@@ -35,6 +35,7 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password)
         signIn(email, password)
+        
             .then(result => {
                 toastify(true, "Login Successful")
                 const loggedUser = result.user;
