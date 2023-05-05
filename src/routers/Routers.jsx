@@ -8,7 +8,7 @@ import ChefDetails from "../pages/Home/ChefDetails/ChefDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 import Chef from "../layouts/Chef/Chef";
-import Faw from "../pages/Home/Blog/faw";
+import App from "../App";
 
 
 
@@ -22,11 +22,6 @@ const router = createBrowserRouter([
                 path: '/',
                 element: <Home></Home>,
                 loader: () => fetch(`https://server-mdsahjalalrahim-gmailcom.vercel.app/chefs`)
-            },
-
-            {
-                path: '/faw',
-                element: <Faw></Faw>
             }
 
         ]
